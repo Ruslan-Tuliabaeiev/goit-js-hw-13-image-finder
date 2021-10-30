@@ -19,7 +19,7 @@ const serchGalari = new SerchGalari();
 
 
 gallerySerchForm.addEventListener('submit', onSearhe);
- loadMore.addEventListener('click', loadMoreClick);
+ //loadMore.addEventListener('click', loadMoreClick);
 
 
 function onSearhe(e) {
