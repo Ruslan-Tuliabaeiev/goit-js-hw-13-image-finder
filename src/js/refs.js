@@ -6,7 +6,10 @@ export default {
     galleryConteiner: document.querySelector('.gallery'),
     gallerySerchForm: document.querySelector('.search-form'),
     
-    loadMore: document.querySelector('button[data-action="load-more"]'),
+    loadMore: document.querySelector('[data-action="load-more"]'),
+
+///button
+
     }
 // export default function getRefs() {
 //     return {
