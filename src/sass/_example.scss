@@ -25,5 +25,81 @@
   background-size: cover;
   background-position: center;
 }
+//////
+//component
+
+ .search-form {
+  display:flex;
+  justify-content:center;
+margin-top: 5%;
+
+height: 50px;
+
+ }
+
+ .load-more {
+  display:flex;
+  margin-left: 46%;
+margin-top: 50px;
+width: 200px;
+height: 50px;
+ }
+
+.material-icons {
+  padding-right: 5px;
+padding-left: 20px;
+  color: #58aa20;
+}
+
+//component
+
+
+
+.body_galary { 
+  background-color: #b6af31;
+  
+}
+
+
+
+
+
+.gallery {
+  background-color: #880f0f;
+ 
+  display:flex;
+  flex-wrap:wrap;
+  
+}
+
+.photo-card {
+background-color: #d8e4e3;
+border: 5px solid #5e5373;
+  
+}
+
+.stats {
+  border: 10px solid #ece89d;
+  display:flex;
+  justify-content:flex-start;
+}
+
+// .stats-item {
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
