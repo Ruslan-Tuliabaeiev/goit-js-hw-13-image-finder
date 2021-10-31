@@ -13,12 +13,12 @@ export default class SerchGalari {
     this.searchQuery = '';
     this.page = 1;
   }
-  fetchGalari() {
+  async fetchGalari() {
 
     const url = `${BACE_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`;
     return fetch(url)  //options
-    .then(response => response.json())
-
+    .then(response => response.json());
+    this.incrementPage();
         //return fetch(url)
         //.then(r => r.json())
         //.then(data => {
@@ -28,9 +28,9 @@ export default class SerchGalari {
         //  });
       
     
-  }   
+  };   
 
-     ;
+     
         get query() {
           return this.searchQuery;
         }
@@ -38,6 +38,9 @@ export default class SerchGalari {
         set query(newQuery) { 
         this.searchQuery = newQuery;
         }
+            incrementPage() {
+        this.page += 1;
+         };
          resetPage() {
         this.page = 1;
         };
