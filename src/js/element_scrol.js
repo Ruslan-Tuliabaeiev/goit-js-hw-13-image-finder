@@ -19,7 +19,7 @@ const serchGalari = new SerchGalari();
 
 
 
-gallerySerchForm.addEventListener('input', debounce(onSearhe, 2000));
+gallerySerchForm.addEventListener('input', debounce(onSearhe, 1500));
 loadMore.addEventListener('click', loadMoreClick);
    
 //=====
