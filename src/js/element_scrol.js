@@ -19,48 +19,66 @@ const serchGalari = new SerchGalari();
 
 
 
-gallerySerchForm.addEventListener('input', debounce(onSearhe, 1500));
+gallerySerchForm.addEventListener('submit', onSearhe);
+
 loadMore.addEventListener('click', loadMoreClick);
    
 //=====
+
 function onSearhe(e) {
   e.preventDefault();
-  cleerArticlesConteiner();
-  // const form = e.currentTarget;
-  serchGalari.query = e.target.value;
-  serchGalari.fetchGalari();
-  // serchGalari.page = serchGalari.page + 1;
-  serchGalari.resetPage();
-  // console.log(e.target.value);
-  serchGalari.fetchGalari().then(showData).catch(); //console.log(e)
-  //elements.query.       // .trim()
-  serchGalari.fetchGalari().then(hits => {
+  // cleerArticlesConteiner();
+
+  const form = e.currentTarget.elements.query.value;  //e.target.elements.query.value;
+if (form.trim() === '') return 
+  serchGalari.query = form;
+
+cleerArticlesConteiner();
+  
+createMarcup();
+e.currentTarget.reset();
+
+
+
+
+  
+};
+
+
+
+
+ function createMarcup() {
+try {
+     serchGalari.fetchGalari().then(hits => {
     const markup = cartFotoTpl(hits);
-    listItems(markup);
+    listItemsCLas(markup);
+    listItems() 
   });
-  // input.value = '';
+} catch (error) {
+  console.log(error);
 }
-function showData(array) {
-  galleryConteiner.innerHTML = cartFotoConteinerTpl(array.hits);
-  // console.log(array.hits);
+
+    
 }
-// function loadMoreClick() {
-//   serchGalari.fetchGalari();
-// }
+
+
 function loadMoreClick() {
-  serchGalari.fetchGalari().then(hits => {
-    const markup = cartFotoTpl(hits);
-    listItems(markup);
-  });
+ createMarcup();
+ 
 }
+
+
+
 function listItems() {
-  refs.galleryConteiner.scrollIntoView({
+ loadMore.scrollIntoView({
     behavior: 'smooth',
     block: 'end',
   });
 }
-function listItems(hits) {
-  refs.galleryConteiner.insertAdjacentHTML('beforeend', hits);
+
+
+function listItemsCLas(hits) {
+  galleryConteiner.insertAdjacentHTML('beforeend', hits);
 }
 function cartFotoTpl(hits) {
   return cartFotoConteinerTpl(hits);
@@ -73,68 +91,3 @@ function cleerArticlesConteiner() {
 //========
 
 
-// function onSearhe(e) {
-//   e.preventDefault();
-//   cleerArticlesConteiner();
-//     // const form = e.currentTarget; 
-//   serchGalari.query = e.target.value;
-
-//   serchGalari. fetchGalari();
-//   // serchGalari.page = serchGalari.page + 1;
-//   serchGalari.resetPage();
-// // console.log(e.target.value);
-//   serchGalari
-//   .fetchGalari()
-//   .then(showData)
-//   .catch();   //console.log(e)
-    
-// //elements.query.       // .trim()
-
-//  }
-
-// function showData(array) {
- 
-//       galleryConteiner.innerHTML = cartFotoConteinerTpl(array.hits);
-  
-//   // console.log(array.hits);
-// }
-
-// // function loadMoreClick() {
-// //   serchGalari.fetchGalari();
-
-// // }
-// function loadMoreClick() {
-//   serchGalari.fetchGalari().then(hits => {
-//     const markup = cartFotoConteinerTpl(hits);
-//     listItems(markup);
-//   });
-// }
-// function listItems() {
-//   refs.galleryConteiner.scrollIntoView({
-//     behavior: 'smooth',
-//     block: 'end',
-//   });
-// }
-// function listItems(items) {
-//   refs.galleryConteiner.insertAdjacentHTML('beforeend', items);
-// }
-// function cartFotoConteinerTpl(items) {
-//   return cardImages(items);
-// };
-
-
-
-
-
-
-
-// serchGalari
-//     loadMore = document.getElementById('.loadMoreClick');
-// serchGalari.scrollIntoView({
-//   behavior: 'smooth',
-//   block: 'end',
-// });
-
-
-
-//================

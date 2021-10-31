@@ -1,11 +1,10 @@
+const axios = require('axios').default
+axios.defaults.baseURL = 'https://pixabay.com/api/?'
 
-const BACE_URL = 'https://pixabay.com/api/';
 const API_KEY = '24011003-4a9e2bf62a6e3281e228c94d5';
 
-// const BACE_URL = 'https://pixabay.com/api/';
-// const API_KEY = '24011003-4a9e2bf62a6e3281e228c94d5';
 
-//const url = `${BACE_URL}?image_type=photo&orientation=horizontal&q=${searchQuery}&page=${serching}&per_page=12&key=${API_KEY}`;
+
 
 
 export default class SerchGalari {
@@ -14,21 +13,24 @@ export default class SerchGalari {
     this.page = 1;
   }
   async fetchGalari() {
-
-    const url = `${BACE_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`;
-    return fetch(url)  //options
-    .then(response => response.json());
-    this.incrementPage();
+  this.incrementPage();
+  const response = await axios.get(`image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`)
+  // console.log(response);
+  return response.data.hits
+    // const url = `${BACE_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`;
+    // return fetch(url)  //options
+    // .then(response => response.json());
+    
         //return fetch(url)
-        //.then(r => r.json())
-        //.then(data => {
+        //.then(response => response.json())
+        //.then(({ articles }) => {
         // console.log(data);
         // this.incrimentPage();
-        // return data.articles;
+        // return  articles;
         //  });
-      
+       };   
     
-  };   
+ 
 
      
         get query() {
@@ -37,6 +39,7 @@ export default class SerchGalari {
 
         set query(newQuery) { 
         this.searchQuery = newQuery;
+        this.resetPage();
         }
             incrementPage() {
         this.page += 1;
