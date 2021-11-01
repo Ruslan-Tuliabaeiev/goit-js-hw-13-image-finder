@@ -25,6 +25,8 @@ loadMore.addEventListener('click', loadMoreClick);
    
 //=====
 
+loadMore.style.display = 'none';
+
 function onSearhe(e) {
   e.preventDefault();
   // cleerArticlesConteiner();
@@ -40,7 +42,7 @@ e.currentTarget.reset();
 
 
 
-
+loadMore.style.display = 'flex';
   
 };
 

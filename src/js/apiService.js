@@ -10,7 +10,7 @@ const API_KEY = '24011003-4a9e2bf62a6e3281e228c94d5';
 export default class SerchGalari {
   constructor() {
     this.searchQuery = '';
-    this.page = 1;
+    this.page = 0;
   }
   async fetchGalari() {
   this.incrementPage();
