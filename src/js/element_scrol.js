@@ -46,9 +46,6 @@ loadMore.style.display = 'flex';
   
 };
 
-
-
-
  function createMarcup() {
 try {
      serchGalari.fetchGalari().then(hits => {

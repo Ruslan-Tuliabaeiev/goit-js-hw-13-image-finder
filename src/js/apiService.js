@@ -21,13 +21,7 @@ export default class SerchGalari {
     // return fetch(url)  //options
     // .then(response => response.json());
     
-        //return fetch(url)
-        //.then(response => response.json())
-        //.then(({ articles }) => {
-        // console.log(data);
-        // this.incrimentPage();
-        // return  articles;
-        //  });
+  
        };   
     
  
@@ -45,7 +39,7 @@ export default class SerchGalari {
         this.page += 1;
          };
          resetPage() {
-        this.page = 1;
+        this.page = 0;
         };
 }
 
